@@ -1,10 +1,12 @@
-FROM openjdk:8-alpine
+FROM ubuntu:18.04
 
 ENV ANDROID_HOME /opt/android-sdk
 ENV ANDROID_COMPILE_SDK 29
 ENV ANDROID_BUILD_TOOLS 29.0.3
 
-RUN apk add wget unzip
+RUN apt-get update
+RUN apt-get install -y openjdk-8-jdk
+RUN apt-get install -y wget unzip
 RUN wget https://services.gradle.org/distributions/gradle-5.6.4-bin.zip
 RUN unzip gradle-5.6.4-bin.zip
 RUN mv gradle-5.6.4 /opt/gradle
